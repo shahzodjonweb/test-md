@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1",
+    "remark-preset-lint-markdown-style-guide": "^6.0.0",
+    "vfile-reporter": "^8.1.1"
+  },
+  "devDependencies": {
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  },
+  "scripts": {
+    "start": "webpack serve --open",
+    "build": "webpack"
+  }
+}
