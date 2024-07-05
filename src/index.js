@@ -6,18 +6,8 @@ import remarkRehype from "remark-rehype";
 import remarkGfm from "remark-gfm";
 import { unified } from "unified";
 
-async function get() {
+export async function renderData(data) {
   try {
-    const response = await fetch("mm.md");
-
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-
-    const data = await response.text();
-
-    const input = "## Markdown";
-
     unified()
       .use(remarkParse)
       .use(remarkMath)
@@ -35,4 +25,4 @@ async function get() {
   }
 }
 
-get();
+window.renderData = renderData;

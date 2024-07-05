@@ -39,8 +39,10 @@
       <button onclick="handleOnchange()">Submit</button>
     </div>
     <div id="content"></div>
+    <script src="bundle.js"></script>
     <script>
       function handleOnchange() {
+        document.getElementById("content").innerHTML = "Loading...";
         // send the file to the server
         const pdfUrl = document.getElementById("pdfUrl").value;
 
@@ -50,19 +52,19 @@
             source: pdfUrl,
           }),
           headers: {
+            "Content-Type": "application/json",
             Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIwMjI1MjQzLCJpYXQiOjE3MjAyMDM2NDMsImp0aSI6ImRkODUzN2E0OThlNjQ5YTRhYzVjY2ExZmQyNDYwNDE5IiwidXNlcl9pZCI6IjYwN2QzZmQxLTllMWQtNDgzMC04Y2RmLThkOWFlMzViYTRkNyJ9.brwqne3ODL6qDu4jeOv0abphc5Q1lGmne6rTq2oElZU`,
             Company: `94aaff6b-a11f-4456-b11c-15661c920b4e`,
           },
         })
           .then((response) => response.json())
           .then((data) => {
-            console.log(data);
+            window.renderData(data.summary);
           })
           .catch((error) => {
             console.error("Error:", error);
           });
       }
     </script>
-    <script src="bundle.js"></script>
   </body>
 </html>
