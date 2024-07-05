@@ -25,7 +25,7 @@
     "vfile-reporter": "^8.1.1"
   },
   "scripts": {
-    "start": "webpack serve --open",
+    "start": "webpack-dev-server --port 8080 --open",
     "build": "webpack"
   }
 }
